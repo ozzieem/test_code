@@ -6,9 +6,9 @@
 #include "WorkDay.h"
 
 namespace {
-	const long MIN_NUM_OF_WEEKENDS = 4;
-	const long MAX_TOTAL_MINUTES = 2140;
-	const long MAX_TOTAL_HOURS = MAX_TOTAL_MINUTES / 60;
+	const long MIN_NUM_OF_WEEKENDS = 8;
+	const long MAX_TOTAL_HOURS = 34;
+	const long MAX_TOTAL_MINUTES = MAX_TOTAL_HOURS * 60;
 }
 
 class WorkMonth
@@ -32,7 +32,7 @@ public:
 	
 	void createDays();
 
-	bool generateDay();
+	void generateDay();
 
 	void addTotalHours(WorkDay& wd);
 

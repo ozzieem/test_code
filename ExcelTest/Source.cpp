@@ -8,6 +8,8 @@
 #include "WorkMonth.h"
 #include "TimeReport.h"
 
+const short KEY_ESC = 27;
+
 int main()
 {
 	srand(time(NULL));
@@ -15,7 +17,7 @@ int main()
 	WorkMonth* wm = new WorkMonth();
 	std::cout << *wm << "\n";
 
-	while (_getch())
+	do
 	{
 		for (size_t i = 0; i < 50; i++)
 		{
@@ -25,9 +27,7 @@ int main()
 		wm = new WorkMonth();
 		std::cout << *wm << "\n";
 
-		TimeReport* tmr = new TimeReport();
+		//TimeReport* tmr = new TimeReport();
 
-	}
-
-	
+	} while (_getch() != KEY_ESC);
 }

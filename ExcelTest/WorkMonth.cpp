@@ -1,6 +1,12 @@
 #include "WorkMonth.h"
 
+#include <algorithm>
 
+
+
+namespace {
+	bool sortByDay(const WorkDay &lhs, const WorkDay &rhs) { return lhs.date->day < rhs.date->day; }
+}
 
 WorkMonth::WorkMonth()
 	: totalHours(0)
@@ -42,20 +48,22 @@ void WorkMonth::createDays()
 	{
 		generateDay();
 	} while (totalHours <= MAX_TOTAL_HOURS );
+
+	std::sort(days.begin(), days.end(), sortByDay);
 }
 
-bool WorkMonth::generateDay()
+void WorkMonth::generateDay()
 {
 	WorkDay* wd = new WorkDay();
 
 	long totalWeekends = 0;
 
-	for each (WorkDay workDay in days)
+	for(WorkDay& workDay : days)
 	{
 		if (wd->date->day == workDay.date->day)
 		{
 			// date exists, return early
-			return true;
+			return;
 		}
 		workDay.date->isWeekend() ? totalWeekends++ : 0;
 	}
@@ -63,7 +71,7 @@ bool WorkMonth::generateDay()
 	// Check to see if enough weekends have been generated
 	if (totalWeekends < MIN_NUM_OF_WEEKENDS && !wd->date->isWeekend())
 	{
-		return true;
+		return;
 	}
 
 	addDay(*wd);
@@ -107,7 +115,7 @@ void WorkMonth::reset()
 
 std::ostream & operator<<(std::ostream & os, const WorkMonth& wm)
 {
-	for each (WorkDay wd in wm.days)
+	for(const WorkDay& wd : wm.days)
 	{
 		os << wd << "\n";
 	}

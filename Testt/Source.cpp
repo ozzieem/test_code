@@ -15,11 +15,11 @@
 
 
 int main() {
-	//RunHasPair();
+	RunHasPair();
 	//RunReverseString();
 	//RunInheritance();
 	//RunThread();
-	RunSwap();
+	//RunSwap();
 
 	_getch();
 }

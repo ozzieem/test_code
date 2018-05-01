@@ -1,3 +1,6 @@
 
 --------------2017-05-29 00:58:19--------------
 Ultrasonic sensor saknar drivrutiner f”r Linux. Kontaktat f”retaget f”r mer information. I v„ntan har refaktorisering skett av C++ koden f”r f”rra sensorn. ™ppet hus f”r Rocktec Automation, hj„lpte till med diverse saker. 
+
+--------------2018-03-30 17:57:31--------------
+jj 
